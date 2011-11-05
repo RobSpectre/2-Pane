@@ -1,0 +1,40 @@
+{
+  "name": "Reader Repaired",
+  "version": "0.2",
+  "description": "Repair Google Reader by hiding the top navigation.",
+  "background_page": "background.html",
+  "popup": "popup.html",
+  "page_action" :
+  {
+    "default_icon": "images/icon-19x19.png",
+    "default_title": "Reader Repaired",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "http://google.com/reader",
+    "http://www.google.com/reader",
+    "https://google.com/reader",
+    "https://www.google.com/reader",
+    "unlimitedStorage"
+	],
+  "content_scripts": [
+    { 
+      "matches": [
+        "http://*.google.com/reader/*",
+        "https://*.google.com/reader/*"
+      ],
+      "js": ["js/jquery-1.5.1.min.js", "js/app.js"],
+      "run_at": "document_idle",
+      "all_frames": true 
+    }
+  ],
+  "icons" : {
+  	"16": "images/icon-16x16.png",
+    "19": "images/icon-19x19.png",
+    "48": "images/icon-48x48.png",
+    "128": "images/icon-128x128.png",
+    "130": "images/icon-130x130.png",
+    "550": "images/icon-550x550.png"
+  }
+}
