@@ -1,28 +1,59 @@
 <!--
-Reader Repaired - Popup Page
+eader Repaired - Popup Page
 
 Turn the top navigation on and off.
 
 -->
-<script>
-    function showPopup() {
-        function Button() {
-            button = document.createElement('a');
-            button.setAttribute('href', '#');
-            button.setAttribute('class', 'setting');
-            return button;
-        }
+<style type="text/css">
+.setting {
+    width: 125px;
+    height: 25px;
+    margin: 5px;
+    padding: 5px;
+    display: block;
+}
+</style>
 
-        var onButton = Button();
-        onButton.appendChild(document.createTextNode("Repair"));
-        var offButton = Button();
-        offButton.appendChild(document.createTextNode("Unrepair"));
-        console.log(onButton);
-
-        document.body.appendChild(onButton);
-        document.body.appendChild(offButton);
+<script type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+function showPopup() {
+    function Button() {
+        button = document.createElement('a');
+        button.setAttribute('href', '#');
+        button.setAttribute('class', 'setting');
+        return button;
     }
 
-    showPopup();
+    if (localStorage["hidden"] == true) {
+       var button_text = "Show";
+    } else {
+       var button_text = "Hide";
+    }
 
+    var button = Button();
+    button.appendChild(document.createTextNode(button_text));
+    document.body.appendChild(button);
+
+    $('.setting').click(function(e) {
+        var text = $(this).text();
+        if (text == "Show") {
+            var action = "showNavigation";
+            localStorage["hidden"] = false;
+            $(this).text("Hide");
+        } else {
+            var action = "hideNavigation";
+            localStorage["hidden"] = true;
+            $(this).text("Show");
+        }
+        chrome.tabs.getSelected(null, function(tab) {
+            console.log("Sending message to: " + tab.id);
+            chrome.tabs.sendRequest(tab.id, {method: action}, function(response) {
+                console.log("Response received: " + response.response);
+            });
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', showPopup);
 </script>
