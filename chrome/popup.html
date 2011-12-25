@@ -6,17 +6,28 @@ Turn the top navigation on and off.
 -->
 <style type="text/css">
 .setting {
-    width: 125px;
-    height: 25px;
-    margin: 5px;
-    padding: 5px;
+    width: 55px;
+    text-align: center;
+    margin: 10px;
     display: block;
+    border: 1px solid #8ec1da;
+    background-color: #ddeef6;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+    color: #3985a8;
+    text-shadow: 0 1px #fff;
+    padding: 5px 30px;
+}
+
+a {
+    text-decoration: none;
 }
 </style>
 
 <script type="text/javascript"
     src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
+
 function showPopup() {
     function Button() {
         button = document.createElement('a');
@@ -25,10 +36,10 @@ function showPopup() {
         return button;
     }
 
-    if (localStorage["hidden"] == true) {
-       var button_text = "Show";
+    if (localStorage["hidden"] == "true") {
+       var button_text = "Original";
     } else {
-       var button_text = "Hide";
+       var button_text = "2-Pane";
     }
 
     var button = Button();
@@ -37,14 +48,14 @@ function showPopup() {
 
     $('.setting').click(function(e) {
         var text = $(this).text();
-        if (text == "Show") {
+        if (text == "Original") {
             var action = "showNavigation";
             localStorage["hidden"] = false;
-            $(this).text("Hide");
+            $(this).text("2-Pane");
         } else {
             var action = "hideNavigation";
             localStorage["hidden"] = true;
-            $(this).text("Show");
+            $(this).text("Original");
         }
         chrome.tabs.getSelected(null, function(tab) {
             console.log("Sending message to: " + tab.id);

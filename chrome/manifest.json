@@ -1,13 +1,14 @@
 {
-  "name": "Reader Repaired",
+  "name": "2-Pane for Google Reader",
   "version": "0.2",
-  "description": "Repair Google Reader by hiding the top navigation.",
+  "description": "Tune Google Reader by hiding the top navigation.  Easily turned
+  on and off through toggle button.",
   "background_page": "background.html",
   "popup": "popup.html",
   "page_action" :
   {
     "default_icon": "images/icon-19x19.png",
-    "default_title": "Reader Repaired",
+    "default_title": "2-Pane",
     "default_popup": "popup.html"
   },
   "permissions": [

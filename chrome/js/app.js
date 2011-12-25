@@ -21,7 +21,6 @@ function hideNavigation() {
     var topNavigation = getNavigation();
     console.log("Hiding Google Reader top navigation...");
     for(var div in topNavigation) {
-        console.log("Hiding element: " + topNavigation[div]);
         if (topNavigation[div]) {
             topNavigation[div].slideUp("fast");
         }
@@ -32,7 +31,6 @@ function showNavigation() {
     var topNavigation = getNavigation();
     console.log("Showing Google Reader top navigation...");
     for(var div in topNavigation) {
-        console.log("Showing element: " + topNavigation[div]);
         if (topNavigation[div]) {
             topNavigation[div].slideDown("fast");
         }
@@ -60,13 +58,14 @@ chrome.extension.onRequest.addListener( function(request, sender, sendResponse) 
     if (request.method == "showNavigation") {
         console.log("Received showNavigation message.");
         showNavigation();
-        sendResponse({response: "Executed showNavigation."});
+        var response_message = "Executed showNavigation.";
     } else if (request.method == "hideNavigation") {
         console.log("Received hideNavigation messages.");
         hideNavigation();
-        sendResponse({response: "Executed hideNavigation."});
+        var response_message = "Executed hideNavigation.";
     } else {
         console.log("Received unknown message: " + request.method);
-        sendResponse({response: "Did not understand message."});
+        var response_message = "Did not understand message.";
     }
+    sendResponse({response: response_message});
 });
