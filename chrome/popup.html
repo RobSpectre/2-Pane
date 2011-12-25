@@ -26,6 +26,7 @@ a {
 
 <script type="text/javascript"
     src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/analytics.js"></script>
 <script type="text/javascript">
 
 function showPopup() {
@@ -63,6 +64,7 @@ function showPopup() {
                 console.log("Response received: " + response.response);
             });
         });
+        _gaq.push(['_trackEvent', 'Switch', text);
     });
 }
 
