@@ -63,6 +63,7 @@ Contributions for the open issues welcome.
 for first time.
 * Firefox extension
 * IE plugin
+* Internationalization
 
 
 Credits
