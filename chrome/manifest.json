@@ -1,6 +1,6 @@
 {
   "name": "2-Pane for Google Reader",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Tune Google Reader by hiding the top navigation.  Easily turned
   on and off through toggle button.",
   "background_page": "background.html",
