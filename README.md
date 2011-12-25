@@ -28,7 +28,7 @@ Features
 Installation
 -------------------------
 
-Just install the extension from the Chrome Web Store.
+Just install the extension from [the Chrome Web Store](http://bit.ly/2-Pane).
 
 Be sure to press "r" after entering 2-Pane Mode.
 
