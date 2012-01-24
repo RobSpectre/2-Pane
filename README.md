@@ -74,3 +74,10 @@ Credits
 
 Lovingly crafted in Brooklyn, NY.  Merry Christmas to all and to all a good
 night.
+
+Want it for Gmail?
+--------------------------
+
+[Amit Gharat](http://amitgharat.wordpress.com/) adapted this approach for his
+own extension, [2-Pane for
+Gmail](https://github.com/codef0rmer/2-Pane-for-Gmail).
